@@ -1,8 +1,8 @@
 # Usage:
-### calcHijack
+### ieHijack
 计算器的com劫持
 ```
-rundll32.exe calcHijack.dll,calcHijack C:\users\test\test.dll
+rundll32.exe ieHijack.dll,ieHijack C:\users\test\test.dll
 ```
 ### fodhelper
 uac bypass
