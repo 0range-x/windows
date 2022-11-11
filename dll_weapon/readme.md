@@ -1,6 +1,6 @@
 # Usage:
 ### ieHijack
-计算器的com劫持
+ie浏览器的com劫持
 ```
 rundll32.exe ieHijack.dll,ieHijack C:\users\test\test.dll
 ```
